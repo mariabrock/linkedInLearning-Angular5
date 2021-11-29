@@ -3,11 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: []
+  styles: [
+    `
+    .list-group-item:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-top: 0;
+    }
+    `
+  ]
 })
 export class AppComponent {
   query: string;
-  artists: object;
+  artists: any;
 
   constructor() {
     this.query = 'Barot';
