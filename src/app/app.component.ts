@@ -16,9 +16,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   query: string;
   artists: any;
-
+  
   showArtist(item: { name: string; }) {
     this.query = item.name;
+    item.highlight = !item.highlight
   }
 
   constructor() {
