@@ -30,9 +30,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<Object>('src/assets.data.json').subscribe(
+    this.http.get<Object>('/assets/data.json').subscribe(
       (      data: any) => {
         this.artists = data;
+        console.log(data);
       })
   }
 
