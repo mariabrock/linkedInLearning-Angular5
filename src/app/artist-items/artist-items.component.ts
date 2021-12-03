@@ -7,10 +7,24 @@ import { HttpClient } from '@angular/common/http';
   inputs: ['artist']
 })
 export class ArtistItemsComponent implements OnInit {
+  query: string;
+  artist: any;
 
-  constructor() { }
+  showArtist(item: { name: string; }) {
+    this.query = item.name;
+    // item.highlight = !item.highlight;
+  }
 
+  constructor(private http: HttpClient) {
+    this.query = '';
+  }
+  
   ngOnInit(): void {
+    this.http.get<Object>('/assets/data.json').subscribe(
+      (      data: any) => {
+        this.artist = data;
+        console.log(data);
+      })
   }
 
 }
